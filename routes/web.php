@@ -126,7 +126,7 @@ Route::middleware('auth')->group(function () {
 
     // FORM SIMULASI (HALAMAN INPUT)
     Route::get('/pinjaman/simulasi', [PinjamanController::class, 'create'])
-        ->name('pinjaman.create');
+        ->name('pinjaman.simulasi.form');
 
     // PROSES SIMULASI
     Route::post('/pinjaman/simulasi', [PinjamanController::class, 'simulasi'])
