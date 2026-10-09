@@ -22,9 +22,14 @@ if [ ! -f .env ]; then
     echo "📄 File .env belum ditemukan. Menyalin dari .env.example..."
     cp .env.example .env
     echo "🔑 Generating Application Key..."
-    php artisan key:generate
+    php artisan key:generate --force
 else
     echo "✅ File .env sudah tersedia."
+    # Memastikan APP_KEY tidak kosong
+    if ! grep -q "^APP_KEY=base64:" .env; then
+        echo "🔑 APP_KEY belum di-set. Generating Application Key..."
+        php artisan key:generate --force
+    fi
 fi
 
 # 3. Install/Update Dependensi PHP via Composer
