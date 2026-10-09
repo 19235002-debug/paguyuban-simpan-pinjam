@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ==============================================================================
-# Script Otomatis Deploy Paguyuban Simpan Pinjam (Laravel & Flutter Web)
+# Script Otomatis Deploy Paguyuban Simpan Pinjam (Laravel Web)
 # ==============================================================================
 
 echo "----------------------------------------------------"
@@ -58,17 +58,6 @@ php artisan view:cache
 # 6. Storage Link
 echo "🔗 5. Membuat Storage Symlink..."
 php artisan storage:link --force
-
-# 7. Check & Build Flutter Web jika Flutter tersedia di server
-if command -v flutter &> /dev/null; then
-    echo "💙 6. Flutter ditemukan! Membangun Flutter Web..."
-    cd mobile
-    flutter pub get
-    flutter build web --release
-    cd ..
-else
-    echo "ℹ️ Flutter SDK tidak ditemukan di server. Pastikan folder mobile/build/web telah di-upload jika menggunakan aplikasi Flutter Web."
-fi
 
 echo "----------------------------------------------------"
 echo "🎉 DEPLOYMENT SELESAI DENGAN SUKSES!"
