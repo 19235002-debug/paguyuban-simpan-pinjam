@@ -40,9 +40,10 @@ else
     echo "⚠️ Warning: Composer tidak ditemukan. Lewati composer install."
 fi
 
-# 4. Jalankan Migrasi Database
-echo "🗄️ 3. Menjalankan migrasi database..."
+# 4. Jalankan Migrasi Database & Seeder
+echo "🗄️ 3. Menjalankan migrasi database & seeder..."
 php artisan migrate --force
+php artisan db:seed --force
 
 # 5. Clearing & Caching Configuration
 echo "⚡ 4. Mengoptimalkan Cache Laravel..."
