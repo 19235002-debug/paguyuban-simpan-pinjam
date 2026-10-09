@@ -10,6 +10,7 @@ echo "----------------------------------------------------"
 
 # 1. Pull perubahan terbaru dari GitHub
 echo "📥 1. Menarik kode terbaru dari GitHub..."
+git reset --hard origin/main
 git pull origin main
 
 if [ $? -ne 0 ]; then
